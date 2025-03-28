@@ -14,15 +14,13 @@ long long int fibo(int seqNum)
     {
         //fill in M[seqNum] ...
         if(seqNum <= 1)
-        M[seqNum-1] = 1;
+            M[seqNum] = 1; //return 1
 
         else
-        M[seqNum] = fibo(seqNum-1) + fibo(seqNum-2);
+            M[seqNum] = fibo(seqNum-1) + fibo(seqNum-2);
 
     }
-    return  
-        M[seqNum];
-   
+    return  M[seqNum];
 }
 
 int main(int argc, char *argv[])
@@ -35,7 +33,7 @@ int main(int argc, char *argv[])
     for (int s = 0; s<=snum; s++)
         M[s] = UNKNOWN;
     
-    //or cout <<M[snum]<<endl;
+    //cout <<M[snum]<<endl;
     cout<<fibo(snum)<<endl;
 
     return 0;
