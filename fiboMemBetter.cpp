@@ -6,20 +6,19 @@
 #include <iostream>
 using namespace std;
 #define UNKNOWN -1
-
+//Memo-izing only works when the subproblems are consistant
 long long int *M; //memo-ized array of already calculated answers
 long long int fibo(int seqNum)
 {
-    if(M[seqNum] == UNKNOWN)
-    {
-        //fill in M[seqNum] ...
-        if(seqNum <= 1)
-            M[seqNum] = 1; //return 1
 
-        else
-            M[seqNum] = fibo(seqNum-1) + fibo(seqNum-2);
+   M[0] = M[1] = 1;
 
-    }
+   for (int i = 2; i<=seqNum; i++)
+   {
+    M[i] = M[i-1]+M[i-2];
+
+   }
+
     return  M[seqNum];
 }
 
